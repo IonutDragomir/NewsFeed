@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/container.css" />
+    <link rel="stylesheet" href="../CSS/newsBody.css" />
+    <script src="../JS/main.js" type="module" defer></script>
+    <title>Learn Api</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="containerTitle">Search your news:</h1>
+      <input type="text" data-input class="searchBar" />
+      <button class="searchButton" type="button" data-button>Search</button>
+    </div>
+
+    <div class="newsBody" data-newsBody>
+      <template data-news-template>
+        <div class="news" data-news-card>
+          <p id="date" data-news-date></p>
+          <p id="title" data-news-title></p>
+          <img id="imageNews" data-news-image />
+          <p id="content" data-news-content></p>
+          <a href="" id="link" data-news-link>Go to News. 🔗➡️</a>
+        </div>
+      </template>
+    </div>
+  </body>
+</html>
