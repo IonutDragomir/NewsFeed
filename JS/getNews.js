@@ -8,29 +8,10 @@ export async function getNews(input) {
     input += element + "%20";
   });
 
-  //links to api
-  // let newsAPIs = [
-  //   `https://api.thenewsapi.com/v1/news/all?api_token=h1UUJhBTJaOz08GlPRbz7jgolehXQ9nHTv0skfAd&language=en&search=${input}`,
-  //   `https://newsapi.org/v2/everything?q=${input}&language=en&apiKey=efb0aea185bb4f20b853307af0faf083`,
-  // ];
+  //link to api
   let newsAPIs = `https://api.thenewsapi.com/v1/news/all?api_token=h1UUJhBTJaOz08GlPRbz7jgolehXQ9nHTv0skfAd&language=en&search=${input}`;
   let theNewsAPI = [];
   let googleNewsAPI = [];
-
-  // we automate the search in api so that we don't not make an repetitive code
-  // for (let x = 0; x <= 1; ++x) {
-  //   let response = await fetch(newsAPIs[x]);
-  //   let news = await response.json();
-  //   if (x === 0) {
-  //     news.data.map((article) => {
-  //       theNewsAPI.push(article);
-  //     });
-  //   } else {
-  //     news.articles.map((article) => {
-  //       googleNewsAPI.push(article);
-  //     });
-  //   }
-  // }
 
   let response = await fetch(newsAPIs);
   let news = await response.json();
@@ -52,7 +33,6 @@ export async function getNews(input) {
   news.value.map((article) => {
     googleNewsAPI.push(article);
   });
-  // console.log(news);
 
   return [theNewsAPI, googleNewsAPI];
 }
