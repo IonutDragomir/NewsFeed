@@ -24,8 +24,8 @@ export function displayNews(allNews) {
           formatDate = article.published_at.split("T");
           image.src = article.image_url;
         } else {
-          formatDate = article.publishedAt.split("T");
-          image.src = article.urlToImage;
+          formatDate = article.datePublished.split("T");
+          image.src = article.image.url;
         }
     
         date.innerText = formatDate[0];
