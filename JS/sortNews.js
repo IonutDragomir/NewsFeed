@@ -14,7 +14,23 @@ export function sortNews(firstAPI, secondAPI) {
   let sortedArray = [];
 
   //we check all 25 articles
-  for (let i = 0; i < 25; ++i) {
+
+  // for (let i = 0; i < 25; ++i) {
+  //   // search in first array until there are no more elements in it
+  //   if (firstAPI.length > 0) {
+  //     for (let j = 0; j < firstAPI.length; ++j) {
+  //       if (recentNews.date < firstAPI[j].published_at) {
+  //         recentNews.date = firstAPI[j].published_at;
+  //         recentNews.article = firstAPI[j];
+  //         recentNews.index = j;
+  //         recentNews.API = 1;
+  //       }
+  //     }
+  //   }
+
+  //udpate, 15 articles
+
+  for (let i = 0; i < 15; ++i) {
     // search in first array until there are no more elements in it
     if (firstAPI.length > 0) {
       for (let j = 0; j < firstAPI.length; ++j) {
@@ -26,17 +42,30 @@ export function sortNews(firstAPI, secondAPI) {
         }
       }
     }
+
     //search in the second array until there are no more elements in it
+    // if (secondAPI.length > 0) {
+    //   for (let k = 0; k < secondAPI.length; ++k) {
+    //     if (recentNews.date < secondAPI[k].publishedAt) {
+    //       recentNews.date = secondAPI[k].publishedAt;
+    //       recentNews.article = secondAPI[k];
+    //       recentNews.index = k;
+    //       recentNews.API = 2;
+    //     }
+    //   }
+    // }
+
     if (secondAPI.length > 0) {
       for (let k = 0; k < secondAPI.length; ++k) {
-        if (recentNews.date < secondAPI[k].publishedAt) {
-          recentNews.date = secondAPI[k].publishedAt;
+        if (recentNews.date < secondAPI[k].datePublished) {
+          recentNews.date = secondAPI[k].datePublished;
           recentNews.article = secondAPI[k];
           recentNews.index = k;
           recentNews.API = 2;
         }
       }
     }
+
     //we add the most recent news
     sortedArray.push({ ...recentNews.article, API: recentNews.API });
     //we check in wich array is the article that is sorted and now needs to be deleted
@@ -54,4 +83,5 @@ export function sortNews(firstAPI, secondAPI) {
     };
   }
   return sortedArray;
+  // console.log(sortedArray);
 }
